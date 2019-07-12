@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: alex
+Build-Jdk: 11.0.2
+Implementation-Title: DEMO
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: DEMO
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/DEMO
+Created-By: Maven Integration for Eclipse
+

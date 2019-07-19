@@ -8,7 +8,7 @@ public class User {
 	
 	@Id
 	String id;
-	
+	String sessionId;
 	String username;
 	String password;
 	String firstName;
@@ -28,11 +28,12 @@ public class User {
 		this.email = email;
 	}
 
-	public User(String id, String username, String password) {
+	public User(String id, String sessionId, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.sessionId=sessionId;
 		
 	}
 	
@@ -75,6 +76,14 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 	
 

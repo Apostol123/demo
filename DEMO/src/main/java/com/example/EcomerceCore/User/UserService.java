@@ -28,12 +28,21 @@ public class UserService {
 		return users;
 	}
 	
-	public void updateUser(User user, String id) {
+	public void updateUser(User user) {
 		userRepository.save(user);
 	}
 	
 	public void deleteUser(String id) {
 		userRepository.deleteById(id);
+	}
+	
+	
+	public User getUserById(String id) {
+		return userRepository.getUserById(id);
+		
+	}
+	public User getUserBySessionId(String sessionId) {
+		return userRepository.getUserBySessionId(sessionId);
 	}
 	
 	

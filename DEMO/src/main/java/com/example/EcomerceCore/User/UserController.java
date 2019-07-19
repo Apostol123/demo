@@ -41,27 +41,32 @@ public class UserController {
 	 * @param topic
 	 */
 	@RequestMapping(method=RequestMethod.POST,value="/users")
-	public void addUser(@RequestBody User user,HttpSession session) {
-		user.setId(session.getId());
+	public void addUser(@RequestBody User user,HttpSession session ) {
+		user.setSessionId(session.getId());
 		userService.addUser(user);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT,value="/users/{id}")
 	public void addUser(@RequestBody User user,@PathVariable String id) {
-		userService.updateUser(user,id);
+		userService.updateUser(user);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE,value="/users/{id}")
 	public void addUser(@PathVariable String id) {
 		userService.deleteUser(id);
 	}
+		//omg change
 	
 	@PostMapping("/users/closeSession/{userId}")
-	public String destroySession(HttpServletRequest request,String userId) {
-		if (request.getSession().getId().equalsIgnoreCase(userId)) {
+	public void destroySession(HttpServletRequest request,String sessionId) {
+		User user =userService.getUserBySessionId(sessionId);
+		user.setSessionId("closed");
+		userService.updateUser(user);
+		if (request.getSession().getId().equalsIgnoreCase(sessionId)) {
 			request.getSession().invalidate();
 		}
-		return "redirect:/";
+		
+		
 	}
 	
 

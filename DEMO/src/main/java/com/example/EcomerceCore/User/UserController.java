@@ -55,9 +55,9 @@ public class UserController {
 	public void addUser(@PathVariable String id) {
 		userService.deleteUser(id);
 	}
-		//omg change
+		
 	
-	@PostMapping("/users/closeSession/{userId}")
+	@PostMapping("/users/closeSession/{sessionId}")
 	public void destroySession(HttpServletRequest request,String sessionId) {
 		User user =userService.getUserBySessionId(sessionId);
 		user.setSessionId("closed");
